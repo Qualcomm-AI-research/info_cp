@@ -1,0 +1,24 @@
+# @package _global_
+defaults:
+  - base_config
+dataset: "emnist"
+objective: "conftr"
+job_name: "conftr_class/aps"
+lr: 0.05
+batch_size: 100
+momentum: 0.9
+weight_decay: 0.0005
+nesterov: True
+temperature: 1.
+optimizer: "sgd"
+scheduler: "step"
+gamma: 0.1
+alpha: 0.01
+size_loss_weight: 5
+coverage_loss_weight: 1.
+cross_entropy_loss_weight: 0.
+target_size: 1
+n_epochs: 75
+early_stopping_patience: 75
+val_examples: 6200
+steepness: 100

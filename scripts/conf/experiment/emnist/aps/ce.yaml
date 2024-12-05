@@ -1,0 +1,20 @@
+# @package _global_
+defaults:
+  - base_config
+dataset: "emnist"
+objective: "ce"
+job_name: "ce/aps"
+lr: 0.005
+batch_size: 100
+momentum: 0.9
+weight_decay: 0.0005
+nesterov: True
+temperature: 0.5
+optimizer: "sgd"
+scheduler: "step"
+gamma: 0.1
+alpha: 0.01
+n_epochs: 75
+early_stopping_patience: 75
+val_examples: 6200
+steepness: 10

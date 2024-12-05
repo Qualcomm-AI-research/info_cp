@@ -1,0 +1,58 @@
+scheduler:
+    algo: "asha"
+    # Training result attr to use for comparing time
+    time_attr: "training_iteration"
+    # Max time units per trial. Trials will be stopped after max_t time units (determined by time_attr).
+    max_t: 10
+    # Only stop trials at least this old in time. The units are the same as the attribute named by time_attr.
+    grace_period: 3
+    # Used to set halving rate and amount. This is simply a unit-less scalar.
+    reduction_factor: 2
+    # Models will be considered for perturbation at this interval of time_attr.
+    # Note that perturbation incurs checkpoint overhead, so you shouldn’t set this to be too frequent.
+    perturbation_interval: 5
+
+
+searcher:
+    algo: "hyperopt"
+    max_concurrent: 2
+    # number of random evaluations of the objective function before starting
+    # to aproximate it with tree parzen estimators
+    n_initial_points: 10
+
+
+experiment:
+    # Metric to optimize. This metric should be reported with tune.report() -> TuneReportCallback for Lightning
+    # It will be passed to the search algorithm and scheduler.
+    search_metric: "val/loss"
+    # Must be one of [min, max]. Determines whether objective is minimizing or maximizing the metric attribute.
+    # It will be passed to the search algorithm and scheduler.
+    mode: "max"
+    # Name of the experiment
+    exp_name: "cp_tune"
+    # Used as stop criterion.
+    # Currently not used. Use max_t from the scheduler to set the stop for each trial
+    training_iteration: 1000
+    # Resource per trial - Use fraction to fit more experiments in one GPU
+    cpu: 1.
+    gpu: 1.
+    # Number of times to sample from the hyperparameter space
+    num_samples: 10
+    # Output folder
+    local_dir: "ray_results"
+    # Number of checkpoints to keep. A value of None keeps all checkpoints. Defaults to None.
+    # If set, need to provide checkpoint_score_attr.
+    keep_checkpoints_num: 1
+    # Specifies by which attribute to rank the best checkpoint. Default is increasing order.
+    # If attribute starts with min- it will rank attribute in decreasing order, i.e. min-loss
+    checkpoint_score_attr: "min-loss"
+    # How many training iterations between checkpoints. A value of 0 (default) disables checkpointing.
+    # This has no effect when using the Functional Training API.
+    checkpoint_freq: 10
+    # Whether to checkpoint at the end of the experiment regardless of the checkpoint_freq. Default is False.
+    # This has no effect when using the Functional Training API.
+    checkpoint_at_end: True
+    # Try to recover a trial at least this many times.
+    # Ray will recover from the latest checkpoint if present
+    # -1 -> infinite recovery; 0 -> disable recovery
+    max_failures: 1

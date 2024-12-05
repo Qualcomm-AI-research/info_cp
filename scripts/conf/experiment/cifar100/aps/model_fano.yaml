@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+  - base_config
+dataset: "cifar100"
+objective: "model_fano"
+job_name: "model_fano/aps"
+momentum: 0.9
+nesterov: True
+weight_decay: 0.0005
+optimizer: "sgd"
+scheduler: "step"
+size_loss_weight: 0.
+coverage_loss_weight: 0.
+cross_entropy_loss_weight: 0.
+n_epochs: 150
+early_stopping_patience: 150
+# Hypersearch results (remained the same for light aug)
+batch_size: 100
+lr: 0.05
+temperature: 1
+steepness: 10

@@ -1,0 +1,21 @@
+# @package _global_
+defaults:
+  - base_config
+dataset: "fashion"
+objective: "model_fano"
+job_name: "model_fano/aps"
+optimizer: "sgd"
+scheduler: "step"
+momentum: 0.9
+nesterov: True
+alpha: 0.01
+size_loss_weight: 0.
+coverage_loss_weight: 0.
+cross_entropy_loss_weight: 0.
+n_epochs: 150
+early_stopping_patience: 150
+# Hypersearch results
+batch_size: 100
+lr: 0.05
+temperature: 1.0
+steepness: 100
