@@ -1,5 +1,5 @@
 # An Information Theoretic Perspective on Conformal Prediction
-Alvaro H.C. Correia, Fabio Valerio Massoli, Christos Louizos and Arash Behboodi. "An Information Theoretic Perspective on Conformal Prediction." [[Arxiv]](https://arxiv.org/abs/2405.02140)
+Alvaro H.C. Correia, Fabio Valerio Massoli, Christos Louizos and Arash Behboodi. "An Information Theoretic Perspective on Conformal Prediction." *Advances in neural information processing systems 37 (2024)* [[Arxiv]](https://arxiv.org/abs/2405.02140)
 
 Qualcomm AI Research, Qualcomm Technologies Netherlands B.V. (Qualcomm AI Research is an initiative of Qualcomm Technologies, Inc.).
 
